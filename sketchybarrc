@@ -166,10 +166,20 @@ sketchybar --add item clock right                              \
                              label="Files" \
                              icon=􀈖        \
                              icon.size=14  \
+           --add item termFiles popup.ejectMenu \
+           --set termFiles click_script="osascript /Users/srijan/Library/Scripts/files-iterm-window.scpt; $USB_POPUP_OFF" \
+                           label="Files Terminal" \
+                           icon= \
+                           icon.size=14 \
            --add item generalStorage popup.ejectMenu \
-           --set generalStorage click_script="open /System/Volumes/Data/Volumes/General\ T7; $USB_POPUP_OFF" \
+           --set generalStorage click_script="open /System/Volumes/Data/Volumes/General-T7; $USB_POPUP_OFF" \
                                 label="General" \
                                 icon=􀈬          \
+           --add item termGeneral popup.ejectMenu \
+           --set termGeneral click_script="osascript /Users/srijan/Library/Scripts/general-iterm-window.scpt; $USB_POPUP_OFF" \
+                             label="General Terminal" \
+                             icon=􀩼 \
+                             icon.size=14 \
            --add item backups popup.ejectMenu \
            --set backups click_script="open /System/Volumes/Data/Volumes/Backup\ T7; $USB_POPUP_OFF" \
                                 label="Backups" \
