@@ -127,10 +127,10 @@ USB_POPUP_OFF='sketchybar --set ejectMenu popup.drawing=off'
 
 sketchybar --add item clock right                              \
            --set clock   update_freq=30                        \
-                         icon=  \
                          icon.font="SF Pro:Bold:15.0" \
                          label.font="SF Pro:Bold:15.0" \
                          script="$PLUGIN_DIR/clock.sh"         \
+                         icon.color=0xfff38ba8 \
                          click_script="open -a 'Calendar'" \
            --add item temp right                              \
            --set temp update_freq=300                        \

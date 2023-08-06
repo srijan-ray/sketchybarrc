@@ -4,4 +4,5 @@
 # the item invoking this script:
 # https://felixkratz.github.io/SketchyBar/config/events#events-and-scripting
 
-sketchybar --set $NAME icon="􀉉 $(date '+%a %b %d ')" label="$(date '+%I:%M %p')"
+sketchybar --set $NAME icon="􀉉 " label="$(date '+%a %b %d ') $(date '+%I:%M %p')"
+
