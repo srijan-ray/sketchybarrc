@@ -2,10 +2,10 @@
 # The $NAME variable is passed from sketchybar and holds the name of
 # the item invoking this script:
 # https://felixkratz.github.io/SketchyBar/config/events#events-and-scripting
-LOCATION="Ellicott%20City" # set to your location
-TEMP=`curl -s "https://api.weather.gov/gridpoints/LWX/103,89/forecast/hourly" | jq -r '.properties.periods[0].temperature'`
-ICON=`curl -s "https://api.weather.gov/gridpoints/LWX/103,89/forecast/hourly" | jq -r '.properties.periods[0].shortForecast'`
-SKY=`curl -s "https://api.weather.gov/gridpoints/LWX/103,89/forecast/hourly" | jq -r '.properties.periods[0].isDaytime'`
+LOCATION="Atlanta" # set to your location
+TEMP=`curl -s "https://api.weather.gov/gridpoints/FFC/50,88/forecast/hourly" | jq -r '.properties.periods[0].temperature'`
+ICON=`curl -s "https://api.weather.gov/gridpoints/FFC/50,88/forecast/hourly" | jq -r '.properties.periods[0].shortForecast'`
+SKY=`curl -s "https://api.weather.gov/gridpoints/FFC/50,88/forecast/hourly" | jq -r '.properties.periods[0].isDaytime'`
 
 echo $TEMP
 echo $ICON
@@ -74,4 +74,3 @@ sketchybar --set $NAME label="${TEMP}°F" \
         --set $NAME icon="${BARICON}" \
         --set $NAME icon.color="0xff8bd5ca" \
 	   --set $NAME click_script="/usr/bin/open /System/Applications/Weather.app"
-
