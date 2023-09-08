@@ -184,6 +184,10 @@ sketchybar --add item clock right                              \
            --set backups click_script="open /System/Volumes/Data/Volumes/Backup\ T7; $USB_POPUP_OFF" \
                                 label="Backups" \
                                 icon=􀤝          \
+           --add item ejectAll popup.ejectMenu \
+           --set ejectAll click_script='osascript -e "tell application \"Finder\" to eject (every disk whose ejectable is true)"' \
+                                label="Eject All" \
+                                icon=􀢢          \
            --add item wifiPopup right \
            --set wifiPopup popup.drawing=off \
            --set wifiPopup popup.height=35 \
