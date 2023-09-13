@@ -126,7 +126,7 @@ USB_POPUP_OFF='sketchybar --set ejectMenu popup.drawing=off'
 
 
 sketchybar --add item clock right                              \
-           --set clock   update_freq=30                        \
+           --set clock   update_freq=5                        \
                          icon.font="SF Pro:Bold:15.0" \
                          label.font="SF Pro:Bold:15.0" \
                          script="$PLUGIN_DIR/clock.sh"         \
@@ -185,7 +185,7 @@ sketchybar --add item clock right                              \
                                 label="Backups" \
                                 icon=􀤝          \
            --add item ejectAll popup.ejectMenu \
-           --set ejectAll click_script='osascript -e "tell application \"Finder\" to eject (every disk whose ejectable is true)"' \
+           --set ejectAll click_script='osascript -e "tell application \"Finder\" to eject (every disk whose ejectable is true)"; $USB_POPUP_OFF' \
                                 label="Eject All" \
                                 icon=􀢢          \
            --add item wifiPopup right \
