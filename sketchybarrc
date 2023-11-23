@@ -12,20 +12,20 @@ PLUGIN_DIR="$HOME/.config/sketchybar/plugins"
 # If you are looking for other colors, see the color picker:
 # https://felixkratz.github.io/SketchyBar/config/tricks#color-picker
 
-sketchybar --bar height=32        \
-                 blur_radius=180   \
+sketchybar --bar height=32\
+                 blur_radius=0 \
                  position=top     \
                  sticky=off       \
                  padding_left=10  \
                  padding_right=10 \
-                 color=0xff200f35\
+                 color=0x00000000\
                  y_offset=3       \
                  margin=6         \
                  corner_radius=14 \
-                 border_width=2   \
-                 border_color=0xffa7cdfc\
+                 border_width=0   \
+                 border_color=0xff2b4059\
                  shadow=on \
-                 height=35 \
+                 hidden=off \
 
 ##### Changing Defaults #####
 # We now change some default values that are applied to all further items
@@ -81,20 +81,26 @@ done
 sketchybar --add item space_separator left                         \
            --set space_separator icon=                            \
                                  icon.color=0xfff5a97f             \
-                                 padding_left=10                   \
-                                 padding_right=10                  \
+                                 padding_left=7                   \
+                                 padding_right=7                  \
                                  label.drawing=off                 \
                                                                    \
            --add item front_app left                               \
            --set front_app       script="$PLUGIN_DIR/front_app.sh" \
                                  icon.drawing=off \
+                                 background.height=20 \
+                                 background.corner_radius=5 \
+                                 background.color=0xff797777 \
+                                 padding_right=10 \
            --subscribe front_app front_app_switched \
            --add bracket left_side front_app \
            --set         left_side background.color=0x44ffffff \
-                                   background.corner_radius=5 \
-                                   background.height=25 \
-                                   background.border_width=2 \
-                                   background.border_color=0xff797777 \
+                                   background.padding_right=30 \
+           --add bracket spaces_group '/space\..*/' space_separator left_side \
+           --set         spaces_group background.color=0xff2b4059 \
+                                      background.corner_radius=16  \
+                                      background.height=27 \
+                                      background.padding_right=19 \
 
 media=(
   script="$PLUGIN_DIR/media.sh"
@@ -106,7 +112,14 @@ sketchybar --add item media q \
            --set media icon.color=0xffea7ef5 \
            --set media "${media[@]}" \
                        icon.padding=10 \
+                       background.color=0xff2b4059 \
+                       icon.padding_left=9 \
+                       background.corner_radius=16  \
+                       background.height=27 \
+                       label.padding_right=10 \
+                       background.padding_right=5 \
            --subscribe media media_change \
+
 ##### Adding Right Items #####
 # In the same way as the left items we can add items to the right side.
 # Additional position (e.g. center) are available, see:
@@ -126,7 +139,7 @@ USB_POPUP_OFF='sketchybar --set ejectMenu popup.drawing=off'
 
 
 sketchybar --add item clock right                              \
-           --set clock   update_freq=5                        \
+           --set clock   update_freq=1                        \
                          icon.font="SF Pro:Bold:15.0" \
                          label.font="SF Pro:Bold:15.0" \
                          script="$PLUGIN_DIR/clock.sh"         \
@@ -138,11 +151,9 @@ sketchybar --add item clock right                              \
                       label.font="Hack Nerd Font:Bold:15.0" \
                       icon.font="Hack Nerd Font:Bold:19.0" \
            --add bracket utils clock temp \
-           --set         utils background.color=0x44ffffff \
-                               background.corner_radius=5 \
+           --set         utils background.color=0xff2b4059 \
+                               background.corner_radius=16 \
                                background.height=25 \
-                               background.border_width=2 \
-                               background.border_color=0xff797777 \
            --add item divider right \
            --set divider label="‌ " \
            --set divider icon="‌ " \
@@ -155,7 +166,7 @@ sketchybar --add item clock right                              \
                            popup.height=35   \
                            icon=􀆦            \
                            icon.font.size=15 \
-                           icon.padding_right=2 \
+                           icon.padding_right=4 \
                            icon.color=0xffb7bdf8 \
                            icon.padding_left=0  \
                            background.padding_right=0 \
@@ -234,11 +245,9 @@ sketchybar --add item clock right                              \
                          background.padding_left=8 \
            --subscribe battery system_woke power_source_change \
            --add bracket bvwUtils ejectMenu wifiPopup volumePopup battery                   \
-           --set         bvwUtils background.color=0x44ffffff                     \
-                               background.corner_radius=5                         \
+           --set         bvwUtils background.color=0xff2b4059                     \
+                               background.corner_radius=16                         \
                                background.height=25                               \
-                               background.border_width=2 \
-                               background.border_color=0xff797777 \
                                                                                   \
            --add item cpu e \
            --set cpu icon="􀫥" \
@@ -253,12 +262,9 @@ sketchybar --add item clock right                              \
                         script="$PLUGIN_DIR/memory.sh" \
                         update_freq=7 \
            --add bracket coreUtils cpu memory \
-           --set         coreUtils background.color=0x44ffffff \
-                                   background.corner_radius=5                         \
+           --set         coreUtils background.color=0xff2b4059 \
+                                   background.corner_radius=16                         \
                                    background.height=25                               \
-                                   background.border_width=2 \
-                                   background.border_color=0xff797777 \
-
 
 
 
