@@ -101,6 +101,7 @@ sketchybar --add item space_separator left                         \
                                       background.corner_radius=16  \
                                       background.height=27 \
                                       background.padding_right=19 \
+                                      shadow=on \
 
 media=(
   script="$PLUGIN_DIR/media.sh"
@@ -112,12 +113,14 @@ sketchybar --add item media q \
            --set media icon.color=0xffea7ef5 \
            --set media "${media[@]}" \
                        icon.padding=10 \
+                       icon.font.size=14 \
                        background.color=0xff2b4059 \
                        icon.padding_left=9 \
                        background.corner_radius=16  \
-                       background.height=27 \
-                       label.padding_right=10 \
+                       background.height=25 \
+                       label.padding_right=5 \
                        background.padding_right=5 \
+                       shadow=on \
            --subscribe media media_change \
 
 ##### Adding Right Items #####
@@ -154,6 +157,7 @@ sketchybar --add item clock right                              \
            --set         utils background.color=0xff2b4059 \
                                background.corner_radius=16 \
                                background.height=25 \
+                               shadow=on \
            --add item divider right \
            --set divider label="‌ " \
            --set divider icon="‌ " \
@@ -248,6 +252,7 @@ sketchybar --add item clock right                              \
            --set         bvwUtils background.color=0xff2b4059                     \
                                background.corner_radius=16                         \
                                background.height=25                               \
+                               shadow=on \
                                                                                   \
            --add item cpu e \
            --set cpu icon="􀫥" \
@@ -265,6 +270,7 @@ sketchybar --add item clock right                              \
            --set         coreUtils background.color=0xff2b4059 \
                                    background.corner_radius=16                         \
                                    background.height=25                               \
+                                   shadow=on \
 
 
 
