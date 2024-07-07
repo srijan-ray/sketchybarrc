@@ -17,7 +17,7 @@ apple_logo=(
   background.padding_left=0
   background.color=0xff2b4059
   background.corner_radius=25
-  shadow=on
+  shadow=off
 )
 
 apple_prefs=(

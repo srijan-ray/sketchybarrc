@@ -12,18 +12,18 @@ PLUGIN_DIR="$HOME/.config/sketchybar/plugins"
 # If you are looking for other colors, see the color picker:
 # https://felixkratz.github.io/SketchyBar/config/tricks#color-picker
 
-sketchybar --bar height=32\
+sketchybar --bar height=38\
                  blur_radius=0 \
                  position=top     \
-                 sticky=off       \
+                 sticky=on       \
                  padding_left=10  \
                  padding_right=10 \
-                 color=0x00000000\
-                 y_offset=3       \
-                 margin=6         \
-                 corner_radius=14 \
+                 color=0xff494d64\
+                 y_offset=0       \
+                 margin=0         \
+                 corner_radius=0 \
                  border_width=0   \
-                 border_color=0xff2b4059\
+                 border_color=0xffb4befe\
                  shadow=on \
                  hidden=off \
 
@@ -32,7 +32,7 @@ sketchybar --bar height=32\
 # For a full list of all available item properties see:
 # https://felixkratz.github.io/SketchyBar/config/items
 
-sketchybar --default icon.font="Hack Nerd Font:Bold:17.0"  \
+sketchybar --default icon.font="JetBrainsMono Nerd Font:Bold:17.0"  \
                      icon.color=0xffffffff                 \
                      label.font="SF Pro:Bold:14.0" \
                      label.color=0xffffffff                \
@@ -48,6 +48,10 @@ sketchybar --default icon.font="Hack Nerd Font:Bold:17.0"  \
                      popup.background.color=0xff1e1e2e  \
                      popup.blur_radius=20 \
                      popup.background.shadow.drawing=on \
+                     background.y_offset=2 \
+                     text.y_offset=2 \
+                     icon.y_offset=2 \
+                     label.y_offset=2 \
 
 ##### Adding Mission Control Space Indicators #####
 # Now we add some mission control spaces:
@@ -101,7 +105,8 @@ sketchybar --add item space_separator left                         \
                                       background.corner_radius=16  \
                                       background.height=27 \
                                       background.padding_right=19 \
-                                      shadow=on \
+                                      background.y_offset=2 \
+                                      shadow=off \
 
 media=(
   script="$PLUGIN_DIR/media.sh"
@@ -119,8 +124,10 @@ sketchybar --add item media q \
                        background.corner_radius=16  \
                        background.height=25 \
                        label.padding_right=5 \
+                       label.max_chars=15 \
+                       scroll_texts=on \
                        background.padding_right=5 \
-                       shadow=on \
+                       shadow=off \
            --subscribe media media_change \
 
 ##### Adding Right Items #####
@@ -151,13 +158,13 @@ sketchybar --add item clock right                              \
            --add item temp right                              \
            --set temp update_freq=300                        \
            --set temp script="$PLUGIN_DIR/weather.sh"    \
-                      label.font="Hack Nerd Font:Bold:15.0" \
-                      icon.font="Hack Nerd Font:Bold:19.0" \
+                      label.font="JetBrainsMono Nerd Font:Bold:15.0" \
+                      icon.font="JetBrainsMono Nerd Font:Bold:19.0" \
            --add bracket utils clock temp \
            --set         utils background.color=0xff2b4059 \
                                background.corner_radius=16 \
                                background.height=25 \
-                               shadow=on \
+                               shadow=off \
            --add item divider right \
            --set divider label="‌ " \
            --set divider icon="‌ " \
@@ -228,7 +235,7 @@ sketchybar --add item clock right                              \
            --set volumePopup background.padding_left=1 \
            --set volumePopup label.padding_left=0 \
            --set volumePopup label.padding_right=0 \
-                             icon.font="Hack Nerd Font:Bold:19.0" \
+                             icon.font="JetBrainsMono Nerd Font:Bold:19.0" \
                              icon.color=0xfff5bde6 \
            --add item volume popup.volumePopup\
            --set volume  script="$PLUGIN_DIR/volume.sh"        \
@@ -245,14 +252,14 @@ sketchybar --add item clock right                              \
            --set battery script="$PLUGIN_DIR/battery_slider.sh"       \
                          update_freq=60                       \
                          click_script="${POPUP_CLICK_SCRIPT}" \
-                         icon.font="Hack Nerd Font:Bold:19.0" \
+                         icon.font="JetBrainsMono Nerd Font:Bold:19.0" \
                          background.padding_left=8 \
            --subscribe battery system_woke power_source_change \
            --add bracket bvwUtils ejectMenu wifiPopup volumePopup battery                   \
            --set         bvwUtils background.color=0xff2b4059                     \
                                background.corner_radius=16                         \
                                background.height=25                               \
-                               shadow=on \
+                               shadow=off \
                                                                                   \
            --add item cpu e \
            --set cpu icon="􀫥" \
@@ -270,7 +277,7 @@ sketchybar --add item clock right                              \
            --set         coreUtils background.color=0xff2b4059 \
                                    background.corner_radius=16                         \
                                    background.height=25                               \
-                                   shadow=on \
+                                   shadow=off \
 
 
 
