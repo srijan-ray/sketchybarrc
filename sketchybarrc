@@ -43,15 +43,19 @@ sketchybar --default icon.font="JetBrainsMono Nerd Font:Bold:17.0"  \
                      icon.padding_left=4                   \
                      icon.padding_right=4 \
                      popup.background.border_width=2 \
-                     popup.background.corner_radius=9 \
+                     popup.background.corner_radius=5 \
                      popup.background.border_color=0xffa7cdfc  \
                      popup.background.color=0xff1e1e2e  \
-                     popup.blur_radius=20 \
+                     popup.blur_radius=32 \
                      popup.background.shadow.drawing=on \
-                     background.y_offset=2 \
-                     text.y_offset=2 \
-                     icon.y_offset=2 \
-                     label.y_offset=2 \
+                     background.y_offset=0 \
+                     background.height=32 \
+                     background.border_width=2 \
+                     background.border_color=0xff6e738d  \
+                     background.corner_radius=5 \
+                     text.y_offset=0 \
+                     icon.y_offset=0 \
+                     label.y_offset=0 \
 
 ##### Adding Mission Control Space Indicators #####
 # Now we add some mission control spaces:
@@ -71,8 +75,9 @@ do
                               icon=${SPACE_ICONS[i]}                     \
                               background.color=0x44ffffff                \
                               background.corner_radius=5                 \
-                              background.height=20                       \
+                              background.height=22 \
                               background.drawing=off                     \
+                              background.border_width=0 \
                               label.drawing=off                          \
                               script="$PLUGIN_DIR/space.sh"              \
                               click_script="yabai -m space --focus $sid"
@@ -92,20 +97,16 @@ sketchybar --add item space_separator left                         \
            --add item front_app left                               \
            --set front_app       script="$PLUGIN_DIR/front_app.sh" \
                                  icon.drawing=off \
-                                 background.height=20 \
-                                 background.corner_radius=5 \
-                                 background.color=0xff797777 \
+                                 background.height=22 \
+                                 background.color=0xff8087a2 \
+                                 background.border_width=0 \
                                  padding_right=10 \
            --subscribe front_app front_app_switched \
            --add bracket left_side front_app \
-           --set         left_side background.color=0x44ffffff \
-                                   background.padding_right=30 \
+           --set         left_side background.padding_right=32 \
            --add bracket spaces_group '/space\..*/' space_separator left_side \
            --set         spaces_group background.color=0xff2b4059 \
-                                      background.corner_radius=16  \
-                                      background.height=27 \
                                       background.padding_right=19 \
-                                      background.y_offset=2 \
                                       shadow=off \
 
 media=(
@@ -121,8 +122,8 @@ sketchybar --add item media q \
                        icon.font.size=14 \
                        background.color=0xff2b4059 \
                        icon.padding_left=9 \
-                       background.corner_radius=16  \
-                       background.height=25 \
+                       background.corner_radius=5  \
+                       background.height=32 \
                        label.padding_right=5 \
                        label.max_chars=15 \
                        scroll_texts=on \
@@ -162,8 +163,8 @@ sketchybar --add item clock right                              \
                       icon.font="JetBrainsMono Nerd Font:Bold:19.0" \
            --add bracket utils clock temp \
            --set         utils background.color=0xff2b4059 \
-                               background.corner_radius=16 \
-                               background.height=25 \
+                               background.corner_radius=5 \
+                               background.height=32 \
                                shadow=off \
            --add item divider right \
            --set divider label="‌ " \
@@ -174,7 +175,7 @@ sketchybar --add item clock right                              \
                          label.padding_right=1 \
            --add item ejectMenu right \
            --set ejectMenu popup.drawing=off \
-                           popup.height=35   \
+                           popup.height=32   \
                            icon=􀆦            \
                            icon.font.size=15 \
                            icon.padding_right=4 \
@@ -212,7 +213,7 @@ sketchybar --add item clock right                              \
                                 icon=􀢢          \
            --add item wifiPopup right \
            --set wifiPopup popup.drawing=off \
-           --set wifiPopup popup.height=35 \
+           --set wifiPopup popup.height=32 \
                            icon.padding_right=5 \
                            background.padding_right=1 \
            --set wifiPopup icon=                               \
@@ -230,7 +231,7 @@ sketchybar --add item clock right                              \
                               \
            --add item volumePopup right                                                    \
            --set volumePopup popup.drawing=off \
-           --set volumePopup popup.height=35 \
+           --set volumePopup popup.height=32 \
            --set volumePopup click_script="${POPUP_CLICK_SCRIPT}" \
            --set volumePopup background.padding_left=1 \
            --set volumePopup label.padding_left=0 \
@@ -257,8 +258,8 @@ sketchybar --add item clock right                              \
            --subscribe battery system_woke power_source_change \
            --add bracket bvwUtils ejectMenu wifiPopup volumePopup battery                   \
            --set         bvwUtils background.color=0xff2b4059                     \
-                               background.corner_radius=16                         \
-                               background.height=25                               \
+                               background.corner_radius=5                         \
+                               background.height=32                               \
                                shadow=off \
                                                                                   \
            --add item cpu e \
@@ -275,8 +276,8 @@ sketchybar --add item clock right                              \
                         update_freq=7 \
            --add bracket coreUtils cpu memory \
            --set         coreUtils background.color=0xff2b4059 \
-                                   background.corner_radius=16                         \
-                                   background.height=25                               \
+                                   background.corner_radius=5                         \
+                                   background.height=32                               \
                                    shadow=off \
 
 
