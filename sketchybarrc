@@ -302,13 +302,39 @@ sketchybar --add item clock right                              \
                                    background.height=32                               \
                                    background.padding_right=30                               \
                                    shadow=off \
-           --add item memory q \
-           --set memory icon="􀧖" \
-                        icon.color="0xfff5a97f" \
-                        icon.padding_left=1 \
-                        script="$PLUGIN_DIR/memory.sh" \
-                        update_freq=7 \
-           --add bracket coreUtils memory  \
+                                                        \
+           --add item        ram.percent q             \
+           --set ram.percent label.font="SF Pro:Bold:10.8"   \
+                             label.color=0xffffffff \
+                             y_offset=5                   \
+                             width=20                      \
+                             icon.drawing=off              \
+                             background.padding_right=5\
+                             background.padding_left=-65\
+                             update_freq=1                 \
+                                                    \
+           --add graph       ram.user q 75            \
+           --set ram.user    graph.color=$WHITE             \
+                             graph.line_width=1              \
+                             graph.fill_color=$GREY       \
+                             height=10                      \
+                             update_freq=1                 \
+                             background.padding_right=-15\
+                             y_offset=7                   \
+                             label.drawing=off             \
+                             icon.drawing=off              \
+                             script="$PLUGIN_DIR/memory.sh"   \
+                                                        \
+           --add item        ram.logo q             \
+           --set ram.logo label.font="$FONT:Bold:12"   \
+                             icon="􀧖" \
+                             icon.color=0xfff5a97f \
+                             y_offset=0\
+                             background.padding_right=-5\
+                             background.padding_left=2\
+                             icon.drawing=on              \
+                                                            \
+           --add bracket coreUtils ram.percent ram.user ram.logo  \
            --set         coreUtils background.color=0xff2b4059 \
                                    background.corner_radius=5                         \
                                    background.height=32                               \
