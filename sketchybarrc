@@ -274,11 +274,13 @@ sketchybar --add item clock right                              \
                              background.padding_left=2\
                              icon.drawing=on              \
                                                            \
-           --add graph       cpu.user e 50            \
+           --add graph       cpu.user e 75            \
            --set cpu.user    graph.color=$WHITE             \
                              graph.line_width=1              \
                              graph.fill_color=$GREY       \
-                             update_freq=2                 \
+                             height=20                      \
+                             update_freq=1                 \
+                             background.padding_right=15\
                              y_offset=7                   \
                              label.drawing=off             \
                              icon.drawing=off              \
@@ -290,8 +292,8 @@ sketchybar --add item clock right                              \
                              width=20                      \
                              icon.drawing=off              \
                              background.padding_right=5\
-                             background.padding_left=-27\
-                             update_freq=2                 \
+                             background.padding_left=-65\
+                             update_freq=1                 \
                              script="$PLUGIN_DIR/cpu.sh"   \
                                                             \
            --add bracket cpuGraphs cpu.percent cpu.user cpu.logo \

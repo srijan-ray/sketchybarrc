@@ -21,6 +21,6 @@ case "$CPU_PERCENT" in
   ;;
 esac
 
-sketchybar --set  cpu.percent label=$CPU_PERCENT% \
+sketchybar --set  cpu.percent label="CPU: ${CPU_PERCENT}%" \
                               label.color=$COLOR  \
            --push cpu.user    $CPU_USER
