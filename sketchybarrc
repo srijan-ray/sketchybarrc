@@ -2,6 +2,7 @@
 # This is meant to be changed and configured, as it is intentionally kept sparse.
 # For a more advanced configuration example see my dotfiles:
 # https://github.com/FelixKratz/dotfiles
+source "$HOME/.config/sketchybar/colors.sh"
 
 PLUGIN_DIR="$HOME/.config/sketchybar/plugins"
 
@@ -262,19 +263,50 @@ sketchybar --add item clock right                              \
                                background.height=32                               \
                                shadow=off \
                                                                                   \
-           --add item cpu e \
-           --set cpu icon="􀫥" \
-                     icon.color="0xff8aadf4" \
-                     script="$PLUGIN_DIR/cpu.sh" \
-                     update_freq=3 \
-                     label.padding_right=1 \
-           --add item memory e \
+                                                           \
+                                                        \
+           --add item        cpu.logo e             \
+           --set cpu.logo label.font="$FONT:Bold:12"   \
+                             icon="􀧓" \
+                             icon.color=0xff8aadf4 \
+                             y_offset=0\
+                             background.padding_right=-5\
+                             background.padding_left=2\
+                             icon.drawing=on              \
+                                                           \
+           --add graph       cpu.user e 50            \
+           --set cpu.user    graph.color=$WHITE             \
+                             graph.line_width=1              \
+                             graph.fill_color=$GREY       \
+                             update_freq=2                 \
+                             y_offset=7                   \
+                             label.drawing=off             \
+                             icon.drawing=off              \
+                                                            \
+           --add item        cpu.percent e             \
+           --set cpu.percent label.font="SF Pro:Bold:10.8"   \
+                             label.color=0xffffffff \
+                             y_offset=5                   \
+                             width=20                      \
+                             icon.drawing=off              \
+                             background.padding_right=5\
+                             background.padding_left=-27\
+                             update_freq=2                 \
+                             script="$PLUGIN_DIR/cpu.sh"   \
+                                                            \
+           --add bracket cpuGraphs cpu.percent cpu.user cpu.logo \
+           --set         cpuGraphs background.color=0xff2b4059 \
+                                   background.corner_radius=5                         \
+                                   background.height=32                               \
+                                   background.padding_right=30                               \
+                                   shadow=off \
+           --add item memory q \
            --set memory icon="􀧖" \
                         icon.color="0xfff5a97f" \
                         icon.padding_left=1 \
                         script="$PLUGIN_DIR/memory.sh" \
                         update_freq=7 \
-           --add bracket coreUtils cpu memory \
+           --add bracket coreUtils memory  \
            --set         coreUtils background.color=0xff2b4059 \
                                    background.corner_radius=5                         \
                                    background.height=32                               \
