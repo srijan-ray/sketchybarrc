@@ -110,28 +110,6 @@ sketchybar --add item space_separator left                         \
                                       background.padding_right=19 \
                                       shadow=off \
 
-media=(
-  script="$PLUGIN_DIR/media.sh"
-  updates=on
-)
-
-sketchybar --add item media q \
-           --set media icon="􀑪" \
-           --set media icon.color=0xffea7ef5 \
-           --set media "${media[@]}" \
-                       icon.padding=10 \
-                       icon.font.size=14 \
-                       background.color=0xff2b4059 \
-                       icon.padding_left=9 \
-                       background.corner_radius=5  \
-                       background.height=32 \
-                       label.padding_right=5 \
-                       label.max_chars=15 \
-                       scroll_texts=on \
-                       background.padding_right=5 \
-                       shadow=off \
-           --subscribe media media_change \
-
 ##### Adding Right Items #####
 # In the same way as the left items we can add items to the right side.
 # Additional position (e.g. center) are available, see:
@@ -142,8 +120,6 @@ sketchybar --add item media q \
 # volume.sh script is only executed once an actual change in system audio
 # volume is registered. More info about the event system can be found here:
 # https://felixkratz.github.io/SketchyBar/config/events
-
-
 
 POPUP_CLICK_SCRIPT='sketchybar --set $NAME popup.drawing=toggle'
 POPUP_OFF='sketchybar --set wifiPopup popup.drawing=off'
@@ -215,12 +191,16 @@ sketchybar --add item clock right                              \
            --add item wifiPopup right \
            --set wifiPopup popup.drawing=off \
            --set wifiPopup popup.height=32 \
-                           icon.padding_right=5 \
+                           icon.padding_right=7 \
+                           icon.padding_left=2 \
                            background.padding_right=1 \
            --set wifiPopup icon=                               \
+                           icon.size=19 \
            --set wifiPopup click_script="${POPUP_CLICK_SCRIPT}" \
            --add item wifi popup.wifiPopup                     \
            --set wifi    script="$PLUGIN_DIR/wifi.sh"          \
+                         icon=􀷖                             \
+                         icon.color=0xff939ab7             \
                          background.padding_right=12     \
                          update_freq=5                  \
            --add item wifiSettings popup.wifiPopup \
@@ -339,8 +319,25 @@ sketchybar --add item clock right                              \
                                    background.corner_radius=5                         \
                                    background.height=32                               \
                                    shadow=off \
-
-
+                                                \
+           --add item media q \
+           --set media icon="􀑪" \
+           --set media icon.color=0xffea7ef5 \
+           --set media "${media[@]}" \
+                       icon.padding=10 \
+                       icon.font.size=14 \
+                       background.color=0xff2b4059 \
+                       icon.padding_left=9 \
+                       background.corner_radius=5  \
+                       background.height=32 \
+                       label.padding_right=5 \
+                       label.max_chars=15 \
+                       scroll_texts=on \
+                       background.padding_right=5 \
+                       shadow=off \
+                       script="$PLUGIN_DIR/media.sh" \
+                       updates=on                   \ 
+           --subscribe media media_change \
 
 ##### Finalizing Setup #####
 # The below command is only needed at the end of the initial configuration to

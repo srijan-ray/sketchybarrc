@@ -1,19 +1,18 @@
-#!/usr/bin/env sh
+#!/bin/sh
 
-CURRENT_WIFI="$(/System/Library/PrivateFrameworks/Apple80211.framework/Versions/Current/Resources/airport -I)"
-SSID="$(echo "$CURRENT_WIFI" | grep -o "SSID: .*" | sed 's/^SSID: //')"
-CURR_TX="$(echo "$CURRENT_WIFI" | grep -o "lastTxRate: .*" | sed 's/^lastTxRate: //')"
+# The wifi_change event supplies a $INFO variable in which the current SSID
+# is passed to the script.
 
-if [ "$SSID" = "" ]; then
-  sketchybar --set $NAME label="Disconnected" icon=󱛅 icon.color=0xffed8796
-  sketchybar --set wifiPopup icon.color=0xffed8796
+INFO="$(networksetup -listallhardwareports | awk '/Wi-Fi/{getline; print $2}' | xargs networksetup -getairportnetwork | sed "s/Current Wi-Fi Network: //")"
+INFO_LENGTH="$(networksetup -listallhardwareports | awk '/Wi-Fi/{getline; print $2}' | xargs networksetup -getairportnetwork | sed "s/Current Wi-Fi Network: //" | wc -m | grep -o '[0-9]*')"
+if [[ "$INFO_LENGTH" = "78" ]]; then
+    sketchybar --set $NAME label="Not Connected" 
+    sketchybar --set wifiPopup icon="􀙈" 
+    sketchybar --set wifiPopup icon.color=0xfff38ba8 
+    sketchybar --set wifiPopup icon.font.size=19 
 else
-  sketchybar --set $NAME label="$SSID (${CURR_TX}Mbps)" icon=󱚽 icon.color=0xff7dc4e4
-  sketchybar --set wifiPopup icon.color=0xff7dc4e4
-
+    sketchybar --set $NAME label="${INFO}" 
+    sketchybar --set wifiPopup icon.color=0xff94e2d5 
+    sketchybar --set wifiPopup icon="􀙇" 
+    sketchybar --set wifiPopup icon.font.size=19 
 fi
-
-
-
-
-
