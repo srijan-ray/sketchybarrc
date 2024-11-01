@@ -2,10 +2,10 @@
 # The $NAME variable is passed from sketchybar and holds the name of
 # the item invoking this script:
 # https://felixkratz.github.io/SketchyBar/config/events#events-and-scripting
-LOCATION="Atlanta" # set to your location
-TEMP=`curl -s "https://api.weather.gov/gridpoints/FFC/50,88/forecast/hourly" | jq -r '.properties.periods[0].temperature'`
-ICON=`curl -s "https://api.weather.gov/gridpoints/FFC/50,88/forecast/hourly" | jq -r '.properties.periods[0].shortForecast'`
-SKY=`curl -s "https://api.weather.gov/gridpoints/FFC/50,88/forecast/hourly" | jq -r '.properties.periods[0].isDaytime'`
+source "$HOME/.config/sketchybar/secrets.sh"
+TEMP=`curl -s "https://api.weather.gov/gridpoints/FFC/${LOCATION}/forecast/hourly" | jq -r '.properties.periods[0].temperature'`
+ICON=`curl -s "https://api.weather.gov/gridpoints/FFC/${LOCATION}/forecast/hourly" | jq -r '.properties.periods[0].shortForecast'`
+SKY=`curl -s "https://api.weather.gov/gridpoints/FFC/${LOCATION}/forecast/hourly" | jq -r '.properties.periods[0].isDaytime'`
 
 echo $TEMP
 echo $ICON
