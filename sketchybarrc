@@ -14,12 +14,12 @@ PLUGIN_DIR="$HOME/.config/sketchybar/plugins"
 # https://felixkratz.github.io/SketchyBar/config/tricks#color-picker
 
 sketchybar --bar height=40\
-                 blur_radius=0 \
+                 blur_radius=3 \
                  position=top     \
                  sticky=on       \
                  padding_left=10  \
                  padding_right=10 \
-                 color=0x00000000\
+                 color=0xcc313244\
                  y_offset=0       \
                  margin=0         \
                  corner_radius=0 \
@@ -52,7 +52,7 @@ sketchybar --default icon.font="JetBrainsMono Nerd Font:Bold:17.0"  \
                      background.y_offset=0 \
                      background.height=32 \
                      background.border_width=2 \
-                     background.border_color=0x00000000  \
+                     background.border_color=0xff585b70  \
                      background.corner_radius=7 \
                      text.y_offset=0 \
                      icon.y_offset=0 \
@@ -106,7 +106,7 @@ sketchybar --add item space_separator left                         \
            --add bracket left_side front_app \
            --set         left_side background.padding_right=32 \
            --add bracket spaces_group '/space\..*/' space_separator left_side \
-           --set         spaces_group background.color=0xff2b4059 \
+           --set         spaces_group background.color=0xff313244 \
                                       background.padding_right=19 \
                                       shadow=off \
 
@@ -139,7 +139,7 @@ sketchybar --add item clock right                              \
                       label.font="JetBrainsMono Nerd Font:Bold:15.0" \
                       icon.font="JetBrainsMono Nerd Font:Bold:19.0" \
            --add bracket utils clock temp \
-           --set         utils background.color=0xff2b4059 \
+           --set         utils background.color=0xff313244 \
                                background.corner_radius=7 \
                                background.height=32 \
                                shadow=off \
@@ -227,7 +227,7 @@ sketchybar --add item clock right                              \
                         slider.highlight_color=0xff8aadf4                         \
                         slider.background.height=10                               \
                         slider.background.corner_radius=3                         \
-                        slider.background.color=0xff494d64                        \
+                        slider.background.color=0xff313244                        \
            --subscribe volumeSlider volume_change                                 \
                                                                \
            --add item battery right                            \
@@ -238,7 +238,7 @@ sketchybar --add item clock right                              \
                          background.padding_left=8 \
            --subscribe battery system_woke power_source_change \
            --add bracket bvwUtils ejectMenu wifiPopup volumePopup battery                   \
-           --set         bvwUtils background.color=0xff2b4059                     \
+           --set         bvwUtils background.color=0xff313244                     \
                                background.corner_radius=7                         \
                                background.height=32                               \
                                shadow=off \
@@ -277,7 +277,7 @@ sketchybar --add item clock right                              \
                              script="$PLUGIN_DIR/cpu.sh"   \
                                                             \
            --add bracket cpuGraphs cpu.percent cpu.user cpu.logo \
-           --set         cpuGraphs background.color=0xff2b4059 \
+           --set         cpuGraphs background.color=0xff313244 \
                                    background.corner_radius=7                         \
                                    background.height=32                               \
                                    background.padding_right=30                               \
@@ -315,7 +315,7 @@ sketchybar --add item clock right                              \
                              icon.drawing=on              \
                                                             \
            --add bracket coreUtils ram.percent ram.user ram.logo  \
-           --set         coreUtils background.color=0xff2b4059 \
+           --set         coreUtils background.color=0xff313244 \
                                    background.corner_radius=7                         \
                                    background.height=32                               \
                                    shadow=off \
@@ -326,7 +326,7 @@ sketchybar --add item clock right                              \
            --set media "${media[@]}" \
                        icon.padding=10 \
                        icon.font.size=14 \
-                       background.color=0xff2b4059 \
+                       background.color=0xff313244 \
                        icon.padding_left=9 \
                        background.corner_radius=7  \
                        background.height=32 \
