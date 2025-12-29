@@ -44,7 +44,7 @@ sketchybar --default icon.font="JetBrainsMono Nerd Font:Bold:17.0"  \
                      icon.padding_left=4                   \
                      icon.padding_right=4 \
                      popup.background.border_width=2 \
-                     popup.background.corner_radius=5 \
+                     popup.background.corner_radius=7 \
                      popup.background.border_color=0xffa7cdfc  \
                      popup.background.color=0xff1e1e2e  \
                      popup.blur_radius=32 \
@@ -52,8 +52,8 @@ sketchybar --default icon.font="JetBrainsMono Nerd Font:Bold:17.0"  \
                      background.y_offset=0 \
                      background.height=32 \
                      background.border_width=2 \
-                     background.border_color=0xff6e738d  \
-                     background.corner_radius=5 \
+                     background.border_color=0x00000000  \
+                     background.corner_radius=7 \
                      text.y_offset=0 \
                      icon.y_offset=0 \
                      label.y_offset=0 \
@@ -73,7 +73,7 @@ for sid in $(aerospace list-workspaces --all); do
         --subscribe space.$sid aerospace_workspace_change \
         --set space.$sid \
         background.color=0x44ffffff \
-        background.corner_radius=5 \
+        background.corner_radius=7 \
         background.height=22 \
         background.drawing=off \
         label="$sid" \
@@ -140,7 +140,7 @@ sketchybar --add item clock right                              \
                       icon.font="JetBrainsMono Nerd Font:Bold:19.0" \
            --add bracket utils clock temp \
            --set         utils background.color=0xff2b4059 \
-                               background.corner_radius=5 \
+                               background.corner_radius=7 \
                                background.height=32 \
                                shadow=off \
            --add item divider right \
@@ -239,7 +239,7 @@ sketchybar --add item clock right                              \
            --subscribe battery system_woke power_source_change \
            --add bracket bvwUtils ejectMenu wifiPopup volumePopup battery                   \
            --set         bvwUtils background.color=0xff2b4059                     \
-                               background.corner_radius=5                         \
+                               background.corner_radius=7                         \
                                background.height=32                               \
                                shadow=off \
                                                                                   \
@@ -278,7 +278,7 @@ sketchybar --add item clock right                              \
                                                             \
            --add bracket cpuGraphs cpu.percent cpu.user cpu.logo \
            --set         cpuGraphs background.color=0xff2b4059 \
-                                   background.corner_radius=5                         \
+                                   background.corner_radius=7                         \
                                    background.height=32                               \
                                    background.padding_right=30                               \
                                    shadow=off \
@@ -316,7 +316,7 @@ sketchybar --add item clock right                              \
                                                             \
            --add bracket coreUtils ram.percent ram.user ram.logo  \
            --set         coreUtils background.color=0xff2b4059 \
-                                   background.corner_radius=5                         \
+                                   background.corner_radius=7                         \
                                    background.height=32                               \
                                    shadow=off \
                                                 \
@@ -328,7 +328,7 @@ sketchybar --add item clock right                              \
                        icon.font.size=14 \
                        background.color=0xff2b4059 \
                        icon.padding_left=9 \
-                       background.corner_radius=5  \
+                       background.corner_radius=7  \
                        background.height=32 \
                        label.padding_right=5 \
                        label.max_chars=15 \

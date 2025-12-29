@@ -1,18 +1,22 @@
 #!/bin/sh
 
-# The wifi_change event supplies a $INFO variable in which the current SSID
-# is passed to the script.
+# 1. Get the Wi-Fi interface (e.g., en0)
+WIFI_DEV=$(networksetup -listallhardwareports | awk '/Wi-Fi/{getline; print $2}')
 
-INFO="$(networksetup -listallhardwareports | awk '/Wi-Fi/{getline; print $2}' | xargs networksetup -getairportnetwork | sed "s/Current Wi-Fi Network: //")"
-INFO_LENGTH="$(networksetup -listallhardwareports | awk '/Wi-Fi/{getline; print $2}' | xargs networksetup -getairportnetwork | sed "s/Current Wi-Fi Network: //" | wc -m | grep -o '[0-9]*')"
-if [[ "$INFO_LENGTH" = "78" ]]; then
-    sketchybar --set $NAME label="Not Connected" 
-    sketchybar --set wifiPopup icon="􀙈" 
-    sketchybar --set wifiPopup icon.color=0xfff38ba8 
-    sketchybar --set wifiPopup icon.font.size=19 
+# 2. Use ipconfig to get the summary, and grep for the SSID line
+# ipconfig getsummary prints a clean list of details for the interface
+SSID=$(ipconfig getsummary "$WIFI_DEV" | awk -F ' SSID : '  '/ SSID : / {print $2}')
+
+if [ -n "$SSID" ]; then
+  # --- CONNECTED ---
+  sketchybar --set "$NAME" label="$SSID" \
+             --set wifiPopup icon="􀙇" \
+             --set wifiPopup icon.color=0xff94e2d5 \
+             --set wifiPopup icon.font.size=19
 else
-    sketchybar --set $NAME label="${INFO}" 
-    sketchybar --set wifiPopup icon.color=0xff94e2d5 
-    sketchybar --set wifiPopup icon="􀙇" 
-    sketchybar --set wifiPopup icon.font.size=19 
+  # --- DISCONNECTED ---
+  sketchybar --set "$NAME" label="Not Connected" \
+             --set wifiPopup icon="􀙈" \
+             --set wifiPopup icon.color=0xfff38ba8 \
+             --set wifiPopup icon.font.size=19
 fi
