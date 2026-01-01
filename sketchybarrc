@@ -14,12 +14,12 @@ PLUGIN_DIR="$HOME/.config/sketchybar/plugins"
 # https://felixkratz.github.io/SketchyBar/config/tricks#color-picker
 
 sketchybar --bar height=40\
-                 blur_radius=3 \
+                 blur_radius=10 \
                  position=top     \
                  sticky=on       \
                  padding_left=10  \
                  padding_right=10 \
-                 color=0xcc313244\
+                 color=0x50000000\
                  y_offset=0       \
                  margin=0         \
                  corner_radius=0 \
